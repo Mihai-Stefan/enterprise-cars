@@ -3,6 +3,7 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import {  NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { FileUpload } from './FileUpload';
 
 
 const AdminPage = () => {
@@ -31,6 +32,11 @@ const AdminPage = () => {
 
     return (
         <>
+
+            <div className="App">
+                <FileUpload/>
+            </div>
+
         <div className='table-container'>
             <h4>List of Employees sort by Rank Points:</h4>
             <br></br>
