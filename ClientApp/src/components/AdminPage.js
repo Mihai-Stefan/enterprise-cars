@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import {  NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FileUpload } from './FileUpload';
+import Card from "react-bootstrap/Card";
 
 
 const AdminPage = () => {
@@ -33,9 +34,13 @@ const AdminPage = () => {
     return (
         <>
 
-            <div className="App">
-                <FileUpload/>
-            </div>
+            <Card className='container' style={{ width: '60%' }} border="primary">
+            <Card.Header as="h4">Upload employees csv file:</Card.Header>
+            <Card.Body>
+                 <FileUpload />
+            </Card.Body>
+            </Card>
+            <br></br>
 
         <div className='table-container'>
             <h4>List of Employees sort by Rank Points:</h4>

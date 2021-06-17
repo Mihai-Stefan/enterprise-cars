@@ -35,19 +35,20 @@ export class NavMenu extends Component {
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                                 </NavItem>
-                                <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/cars">Cars</NavLink>
-                                </NavItem>
+                                {/*<NavItem>*/}
+                                {/*    <NavLink tag={Link} className="text-dark" to="/cars">Cars</NavLink>*/}
+                                {/*</NavItem>*/}
 
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/carmarket">Car Market</NavLink>
                                 </NavItem>
-                                <NavItem>
-                                  <NavLink tag={Link} className="text-dark" to="/employees">Employees</NavLink>
-                                </NavItem>
+                                {/*<NavItem>*/}
+                                {/*  <NavLink tag={Link} className="text-dark" to="/employees">Employees</NavLink>*/}
+                                {/*</NavItem>*/}
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/admin">Admin Page</NavLink>
                                 </NavItem>
+
 
                                 <LoginMenu>
                                 </LoginMenu>
