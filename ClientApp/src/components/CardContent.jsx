@@ -7,8 +7,8 @@ import "../App.css";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 
-function CardContent({ element }) {
-    const [show, setShow] = useState(false);
+function CardContent({ element, afforted }) {
+  const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -31,101 +31,113 @@ function CardContent({ element }) {
                                 </h4>
                             </Card.Title>
 
-                            <Table striped bordered hover size="sm">
-                                <tbody>
-                                    <tr>
-                                        <td>Fuel Type</td>
-                                        <td className="td-capitalize">{element.fuel}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Body Type</td>
-                                        <td className="td-capitalize">{element["bodyType"]}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Engine</td>
-                                        <td>{element.engine}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Production Years</td>
-                                        <td>{element.modelYearI + "-" + element.modelYearF}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Top Speed</td>
-                                        <td>{element.topSpeedKmph}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Horse Power</td>
-                                        <td>{element.maxPowerBhp}</td>
-                                    </tr>
-                                </tbody>
-                            </Table>
-                            <h4>Car Points Value: {element.valuePoints}</h4>
-                            <Button variant="primary" onClick={handleShow}>
-                                View More
-              </Button><Button id="get-car-button" variant="success">
-                                Get Car
-              </Button>
-                            <Modal show={show} onHide={handleClose}>
-                                <Modal.Header closeButton>
-                                    <Modal.Title className="card-title">{element.company +
-                                        " " +
-                                        element.model +
-                                        " " +
-                                        element.generation}</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>
-                                    <Table striped bordered hover size="sm">
-                                        <tbody>
-                                            <tr>
-                                                <td>Fuel Type</td>
-                                                <td className="td-capitalize">{element.fuel}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Body Type</td>
-                                                <td className="td-capitalize">{element["bodyType"]}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Engine</td>
-                                                <td>{element.engine}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Production Years</td>
-                                                <td>{element.modelYearI + "-" + element.modelYearF}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>CO2 Emissions</td>
-                                                <td>{element.co2Eemissions}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Max bhp Power</td>
-                                                <td>{element.maxPowerBhp}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Max kW Power</td>
-                                                <td>{element.maxPowerKw}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Max Torque Nm</td>
-                                                <td>{element.maxTorqueNm}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Top Speed km/h</td>
-                                                <td>{element.topSpeedKmph}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Acceleration 0-100 km</td>
-                                                <td>{element.zero100}</td>
-                                            </tr>
-                                        </tbody>
-                                    </Table>
-                                </Modal.Body>
-                            </Modal>
-                        </Card.Body>
-                    </Card>
-                </div>
-            }
+              <Table striped bordered hover size="sm">
+                <tbody>
+                  <tr>
+                    <td>Fuel Type</td>
+                    <td className="td-capitalize">{element.fuel}</td>
+                  </tr>
+                  <tr>
+                    <td>Body Type</td>
+                    <td className="td-capitalize">{element["bodyType"]}</td>
+                  </tr>
+                  <tr>
+                    <td>Engine</td>
+                    <td>{element.engine}</td>
+                  </tr>
+                  <tr>
+                    <td>Production Years</td>
+                    <td>{element.modelYearI + "-" + element.modelYearF}</td>
+                  </tr>
+                  <tr>
+                    <td>Top Speed</td>
+                    <td>{element.topSpeedKmph}</td>
+                  </tr>
+                  <tr>
+                    <td>Horse Power</td>
+                    <td>{element.maxPowerBhp}</td>
+                  </tr>
+                </tbody>
+              </Table>
+              <h4>Car Points Value: {element.valuePoints}</h4>
+
+              <div className="lower-card-buttons"> 
+                <Button variant="primary" onClick={handleShow}>
+                  View More
+                </Button>
+                {afforted ? (
+                  <Button id="get-car-button" variant="success">
+                    Get Car
+                  </Button>
+                ) : (
+                  <Button id="get-car-button" variant="secondary">
+                    Get Car   (too expensive)
+                  </Button>
+                )}
+              </div>
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title className="card-title">
+                    {element.company +
+                      " " +
+                      element.model +
+                      " " +
+                      element.generation}
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <Table striped bordered hover size="sm">
+                    <tbody>
+                      <tr>
+                        <td>Fuel Type</td>
+                        <td className="td-capitalize">{element.fuel}</td>
+                      </tr>
+                      <tr>
+                        <td>Body Type</td>
+                        <td className="td-capitalize">{element["bodyType"]}</td>
+                      </tr>
+                      <tr>
+                        <td>Engine</td>
+                        <td>{element.engine}</td>
+                      </tr>
+                      <tr>
+                        <td>Production Years</td>
+                        <td>{element.modelYearI + "-" + element.modelYearF}</td>
+                      </tr>
+                      <tr>
+                        <td>CO2 Emissions</td>
+                        <td>{element.co2Eemissions}</td>
+                      </tr>
+                      <tr>
+                        <td>Max bhp Power</td>
+                        <td>{element.maxPowerBhp}</td>
+                      </tr>
+                      <tr>
+                        <td>Max kW Power</td>
+                        <td>{element.maxPowerKw}</td>
+                      </tr>
+                      <tr>
+                        <td>Max Torque Nm</td>
+                        <td>{element.maxTorqueNm}</td>
+                      </tr>
+                      <tr>
+                        <td>Top Speed km/h</td>
+                        <td>{element.topSpeedKmph}</td>
+                      </tr>
+                      <tr>
+                        <td>Acceleration 0-100 km</td>
+                        <td>{element.zero100}</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </Modal.Body>
+              </Modal>
+            </Card.Body>
+          </Card>
         </div>
-    );
+      }
+    </div>
+  );
 }
 
 export default CardContent;
