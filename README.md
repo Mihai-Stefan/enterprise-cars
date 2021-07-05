@@ -30,7 +30,9 @@ The API for this project is in the following repo:
 
 
 An web application for companies that make cars available to some of their employees, based on an employee evaluation system
+
 Backend: C# and Microsoft SQL, SendGrid for sending emails
+
 Frontend: React
 
 
