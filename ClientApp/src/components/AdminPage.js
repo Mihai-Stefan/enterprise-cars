@@ -7,6 +7,7 @@ import { FileUpload } from './FileUpload';
 import Card from "react-bootstrap/Card";
 
 
+
 const AdminPage = () => {
 
     const [employees, setEmployees] = useState([])
@@ -37,7 +38,7 @@ const AdminPage = () => {
             <Card className='container' style={{ width: '60%' }} border="primary">
             <Card.Header as="h4">Upload employees csv file:</Card.Header>
             <Card.Body>
-                 <FileUpload />
+                    <FileUpload />
             </Card.Body>
             </Card>
             <br></br>

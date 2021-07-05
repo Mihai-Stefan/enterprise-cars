@@ -1,5 +1,6 @@
 ﻿import React, { useState } from "react";
 import axios from "axios";
+import { PutRequest } from './XTestPost';
 
 export const FileUpload = () => {
     const [file, setFile] = useState();
@@ -11,7 +12,7 @@ export const FileUpload = () => {
         setFileName(e.target.files[0].name);
     };
 
-    const uploadFile = async (e) => {
+    const uploadFile = async (e) => {      
         console.log(file);
         const formData = new FormData();
         formData.append("formFile", file);
@@ -22,8 +23,10 @@ export const FileUpload = () => {
         } catch (ex) {
             console.log(ex);
         }
-
+        //window.location.reload(true)
+        
     };
+
 
 
 
@@ -31,6 +34,11 @@ export const FileUpload = () => {
         <>
             <input type="file" onChange={saveFile} />
             <input type="button" value="upload" onClick={uploadFile} />
+
+
+
+
+            
         </>
     );
 
